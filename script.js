@@ -18,23 +18,33 @@ const showNavbar = (function () {
 
 
 const userInput = document.getElementById('gifSearch');
+const img = document.querySelector('img'); 
+
+
 userInput.addEventListener('keypress', (event) => {
   if(event.key === 'Enter') {
-  console.log(userInput.value);
-  const img = document.querySelector('img'); 
-         fetch(`https://api.giphy.com/v1/gifs/translate?api_key=rky6i5txQr8hCoEdF1T1wsCQSemta4gS&s=${userInput.value}`)
-          .then(function(response) {
-            return response.json();
-          })
-          .then(function(response) {
-              img.src = response.data.images.original.url;
-          })
-          .catch(function(error) {
-            console.log('Something went wrong', error);
-            img.src = '../imgs/oops.jpeg';
-          })
+    getGifs()
+        //  fetch(`https://api.giphy.com/v1/gifs/translate?api_key=rky6i5txQr8hCoEdF1T1wsCQSemta4gS&s=${userInput.value}`, {mode: 'cors'})
+        //   .then(function(response) {
+        //     return response.json();
+        //   })
+        //   .then(function(response) {
+        //       img.src = response.data.images.original.url;
+        //   })
+        //   .catch(function(error) {
+        //     console.log(error);
+        //     img.src = '../imgs/oops.jpeg';
+        //   })
         };
-});
+      });
 
-
-
+async function getGifs() {
+  try{
+  const response = await fetch(`https://api.giphy.com/v1/gifs/translate?api_key=rky6i5txQr8hCoEdF1T1wsCQSemta4gS&s=${userInput.value}`, {mode: 'cors'});
+  const gifData = await response.json();
+  img.src = gifData.data.images.original.url;
+  } catch (error) {
+    console.log(error);
+    img.src = '../imgs/oops.jpeg';
+  }
+}
