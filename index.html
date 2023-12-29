@@ -20,19 +20,17 @@
         <div>Contact</div>
         <div>Settings</div>
         </div> 
-        <div class="slider-container">
+        <img src="#">
+        <script>
+         const img = document.querySelector('img'); 
+         fetch('https://api.giphy.com/v1/gifs/translate?api_key=rky6i5txQr8hCoEdF1T1wsCQSemta4gS&s=pugs')
+          .then(function(response) {
+            return response.json();
+          })
+          .then(function(response) {
+              img.src = response.data.images.original.url;
+          });
 
-            <div class="slides">
-              <!-- <div class="slide"><img src="./imgs/background.JPEG" alt="Slide 1"></div> -->
-              <div class="slide"><img src="./imgs/beach.JPEG" alt="Slide 2"></div>
-              <div class="slide"><img src="./imgs/bridge.jpeg" alt="Slide 3"></div>
-              <!-- Add more slides as needed -->
-            </div>           
-          </div>
-          <div class="controls">
-            <button class="prev">Prev</button>
-            <button class="next">Next</button>
-          </div>
-          <div class="dots"></div>
+        </script>
 </body>
 </html>

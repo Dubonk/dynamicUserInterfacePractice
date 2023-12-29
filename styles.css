@@ -1,7 +1,6 @@
 body {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
     width: 100%;
     height: 100vh;
@@ -85,58 +84,8 @@ body {
     padding-bottom: 10px;
 }
 
-/* Styling for the slider */
-.slider-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    /* align-items: center; */
-    background-color: #555;
-    position: relative;
-    width: 750px;
-    height: 1000px;
-    overflow: hidden;
-  }
-  
-
-  img {
-    width: 100%;
-  }
-
-  .slides {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-  }
-  
-  .slide {
-    flex: 0 0 100%;
-  }
-  
-  /* Styling for controls */
-  .controls {
-    position: absolute;
-    top: 80%;
-    left: 0;
-    right: 0;
-    text-align: center;
-  }
-  
-  /* Styling for navigation dots */
-  .dots {
-    text-align: center;
-  }
-  
-  .dot {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: #ccc;
-    margin: 0 5px;
-    cursor: pointer;
-  }
-  
-  .dot.active {
-    background-color: #555;
-  }
+img {
+    margin-top: 250px;
+    width: 600px;
+}
   
