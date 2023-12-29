@@ -16,9 +16,25 @@ const showNavbar = (function () {
     });
 })();
 
-const slides = document.querySelector('.slides');
-const slide = document.querySelectorAll('.slide');
-const prevBtn = document.querySelector('.prev');
-const nextBtn = document.querySelector('.next');
-const dotsContainer = document.querySelector('.dots');
+
+const userInput = document.getElementById('gifSearch');
+userInput.addEventListener('keypress', (event) => {
+  if(event.key === 'Enter') {
+  console.log(userInput.value);
+  const img = document.querySelector('img'); 
+         fetch(`https://api.giphy.com/v1/gifs/translate?api_key=rky6i5txQr8hCoEdF1T1wsCQSemta4gS&s=${userInput.value}`)
+          .then(function(response) {
+            return response.json();
+          })
+          .then(function(response) {
+              img.src = response.data.images.original.url;
+          })
+          .catch(function(error) {
+            console.log('Something went wrong', error);
+            img.src = '../imgs/oops.jpeg';
+          })
+        };
+});
+
+
 

@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url(./Fonts/Roboto-Regular.ttf) format('ttf');
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -7,6 +12,7 @@ body {
     margin: 0;
     position: relative;
     background-color: antiquewhite;
+    font-family: 'Roboto', sans-serif;
 }
 
 #navbar {
@@ -20,6 +26,9 @@ body {
     background-color: beige;
     position: relative;
     z-index: 2;
+}
+#navbar > h1 {
+    padding-left: 15px;
 }
 
 #menuBurger {
@@ -84,8 +93,20 @@ body {
     padding-bottom: 10px;
 }
 
+.gifs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 250px;
+}
+
+.gifs > input {
+  width: 250px;
+}
+
 img {
-    margin-top: 250px;
+  margin-top: 25px;
     width: 600px;
 }
   
